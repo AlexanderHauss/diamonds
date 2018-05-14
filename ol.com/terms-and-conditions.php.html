@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+				<meta name="author" content="Mysuelly" />
+		<meta name="copyright" content="&copy; 2017 MySuelly" />
+		<meta name="ROBOTS" content="INDEX, FOLLOW" />
+		<meta name="google-site-verification" content="aSPgXM7F2xzzUENfdVweh8mwSQdnDUV-guXXwFy759M" />
+		<meta name="format-detection" content="telephone=no" />
+
+		<!-- Site Title -->
+        <title>Terms and Conditions | MySuelly</title>
+        <meta name="description" content="Find the general terms of sale for the site My-Suelly.fr" />
+        <meta name="keywords" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+
+		
+            <link rel="shortcut icon" type="image/x-icon" href="favicon.gif" />
+
+        		
+		<link rel="stylesheet" type="text/css" href="css/style.1525354336.css" media="all" />
+		
+		<script>
+
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-100392780-1', {'siteSpeedSampleRate': 5});
+			ga('send', 'pageview');
+            ga('require', 'displayfeatures');
+            ga('require', 'ec');
+            ga('set', '&cu', 'EUR');
+
+            		</script>
+
+		<link rel="alternate" hreflang="en" href="terms-and-conditions.php.html" />
+
+	</head>
+
+	<body class="en site_1 footer " onunload="">
+
+		
+        
+        
+		<main class="page_wrapper">
+			<header id="site_head_wrap">            <div id="top_wrapper" class="head_top">
+	<div class="wrapper_encarts clearfix">
+    	<div class="wrapper_left f_left">
+            <span>Worldwide shipping</span>
+            <div class="top_lang">
+                <div class=""> 
+                    <a href="javascript:changeLocale('fr','/terms-and-conditions.php');" class="">Fr |</a>
+                    <a href="javascript:changeLocale('en','/terms-and-conditions.php');" class="active">En</a>
+                </div> 
+            </div>
+            <a id="topMenuFavoriteStore" class="top_link vector_sprite pseudo before geoloc" href="shop.php.html">
+				<span>Our stores</span>
+            </a>
+    	</div>
+    
+        <div class="wrapper_right f_right">    
+            <div class="search_box">
+                                <form autocomplete="off" id="form_recherche" method="get" action="https://www.mysuelly.com/sitesearch_recherche.php" onsubmit="return isEmptyKeywordSearch();">
+                    <div class="relative">
+                        <span class="icon_search"></span>
+                        <input type="text" value="" onblur="if(this.value=='') { repli_search(); }" id="search_home" name="keyword" placeholder="Sandals, bags..."/>
+                        <input type="hidden" id="path" value="/">
+                        <span id="btn_search_home" onclick="$('#form_recherche').submit();"><span>Search</span></span>
+                        <div id="show_search"></div>
+                    </div>
+                </form>
+            </div>
+        
+            <div class="account_wrapper">
+                <div id="topMenuConnexionButton" class="my_account_btn ">
+                    <div id="topMenuConnexionButtonInside" class="header_connexion loading">
+                        <span class="picto vector_sprite power"></span>
+                        <span id="entete_connexion"></span>
+                    </div>
+                </div>
+        
+                                <div class="cart elem_user_t" id="cart_top">
+                    <div id="cart_top" class="cart overTop" data-start="height:81px" data-33="height:52px">
+	<div class="wrapper_cart_top" data-start="height:81px" data-33="height:48px">
+		<a id="panier" class="f_right" style="cursor:default;" href="javascript:;" >
+			<p id="txt_articles">
+				<div class="ico_cart"><div data-start="margin-top:21px" data-33="margin-top:8px"><span class="h-cart"></span></div></div>
+				<span class="panier_txt">
+               		<span class="ico_panier"></span>
+               		<span>Shopping Bag</span>
+               	</span>
+                <span id="nb_article" data-start="top:25px" data-33="top:12px">
+					0				</span>
+			</p>
+		</a>
+			 </div>
+</div>
+                </div>
+                            </div>
+        </div>
+    </div>    
+</div>
+
+<nav class="main_menu_wrapper clearfix">
+	<a class="logo" href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html">
+					<div>alt_logo</div>
+				</a>
+	<div class="main_menu">
+		    
+	<div id="menu_last-chance" class="main_menu_itm">
+					<a class="block_lnk" href="last-chance.html">
+				<strong>Last Chance</strong>
+				<span></span>
+			</a>
+				</div>
+
+	<div id="ssmenu_2" class="submenu_wrapper clearfix">
+		<div class="submenu">
+							<div class="ss_menu_categ_wrapper">
+											<ul class="ss_cat shoes">
+							<li>
+								<a class="ss_cat_name" href="last-chance/shoes.html">
+									<span>Shoes</span>
+								</a>
+							</li>
+
+													</ul>
+												<ul class="ss_cat leather-goods">
+							<li>
+								<a class="ss_cat_name" href="last-chance/leather-goods.html">
+									<span>Leather Goods</span>
+								</a>
+							</li>
+
+													</ul>
+												<ul class="ss_cat see-all">
+							<li>
+								<a class="ss_cat_name" href="last-chance/see-all.html">
+									<span>See All</span>
+								</a>
+							</li>
+
+													</ul>
+						                </div>
+
+			                <span class="menu_collection_pic">
+                    <a href="last-chance/see-all.html">
+                        <img src="img/uploads/img_rayon/MS/2/visuel_rayon_26_2.jpg" alt="See All" />
+                    </a>
+                </span>
+           		</div>
+	</div>
+	    
+	<div id="menu_shoes" class="main_menu_itm">
+					<a class="block_lnk" href="shoes.html">
+				<span id="categ_1">Shoes</span>
+			</a>
+				</div>
+
+	<div id="ssmenu_3" class="submenu_wrapper clearfix">
+		<div class="submenu">
+							<div class="ss_menu_categ_wrapper">
+											<ul class="ss_cat sandals-mules">
+							<li>
+								<a class="ss_cat_name" href="shoes/sandals-mules.html">
+									<span>Sandals, mules</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat pumps">
+							<li>
+								<a class="ss_cat_name" href="shoes/pumps.html">
+									<span>Pumps</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat oxfords">
+							<li>
+								<a class="ss_cat_name" href="shoes/oxfords.html">
+									<span>Oxfords</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat boots">
+							<li>
+								<a class="ss_cat_name" href="shoes/boots.html">
+									<span>Boots</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat new-arrivals">
+							<li>
+								<a class="ss_cat_name" href="shoes/new-arrivals.html">
+									<span>New arrivals</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+						                </div>
+
+			                <span class="menu_collection_pic">
+                    <a href="shoes/new-arrivals.html">
+                        <img src="img/uploads/img_rayon/MS/2/visuel_rayon_2_2.jpg" alt="New arrivals" />
+                    </a>
+                </span>
+           		</div>
+	</div>
+	        <a class="logo-scroll" href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html">
+                    <div></div>
+                </a>
+    
+	<div id="menu_leather-goods" class="main_menu_itm">
+					<a class="block_lnk" href="leather-goods.html">
+				<span id="categ_2">Leather goods</span>
+			</a>
+				</div>
+
+	<div id="ssmenu_4" class="submenu_wrapper clearfix">
+		<div class="submenu">
+							<div class="ss_menu_categ_wrapper">
+											<ul class="ss_cat handbag">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/handbag.html">
+									<span>Handbag</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat crossbody-bag">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/crossbody-bag.html">
+									<span>Crossbody bag</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat small-bag-clutch">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/small-bag-clutch.html">
+									<span>Small bag, Clutch</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat party-bag">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/party-bag.html">
+									<span>Party bag</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat new-arrivals">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/new-arrivals.html">
+									<span>New arrivals</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+						                </div>
+
+			                <span class="menu_collection_pic">
+                    <a href="leather-goods/new-arrivals.html">
+                        <img src="img/uploads/img_rayon/MS/2/visuel_rayon_14_2.jpg" alt="New arrivals" />
+                    </a>
+                </span>
+           		</div>
+	</div>
+	    
+	<div id="menu_lookbook" class="main_menu_itm">
+					<a class="block_lnk" href="lookbook.html">
+				<span id="categ_4">Lookbook</span>
+			</a>
+				</div>
+
+	<div id="ssmenu_5" class="submenu_wrapper clearfix">
+		<div class="submenu">
+							<div class="ss_menu_categ_wrapper">
+											<ul class="ss_cat lookbook">
+							<li>
+								<a class="ss_cat_name" href="lookbook.html">
+									<span>Lookbook</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+						                </div>
+
+			                <span class="menu_collection_pic">
+                    <a href="lookbook.html">
+                        <img src="img/uploads/img_rayon/MS/2/visuel_rayon_14_2.jpg" alt="Lookbook" />
+                    </a>
+                </span>
+           		</div>
+	</div>
+	<div id="menu_5" class="main_menu_itm">
+	<a class="block_lnk" href="terms-and-conditions.php.html">
+		<span id="categ_5">MySuelly Paris</span>
+	</a>
+</div>
+
+<div id="ssmenu_5" class="submenu_wrapper clearfix" style="display: none;">
+	<div class="submenu">
+		<div class="ss_menu_categ_wrapper">
+
+			<ul class="ss_cat">
+				<li>
+					<a class="ss_cat_name" href="home.html">
+						<span>La Maison</span>
+					</a>
+				</li>	
+			</ul>
+			
+			<ul class="ss_cat">
+				<li>
+					<a class="ss_cat_name" href="press.html">
+						<span>Press</span>
+					</a>
+				</li>
+			</ul>
+			
+			<ul class="ss_cat">
+				<li>
+					<a class="ss_cat_name" href="ms-live.php.html">
+						<span>#MySuelly</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="menu_shade">&nbsp;</div>
+
+
+			</div>
+</nav>
+
+
+<div id="my_account_tmpl" style="display:none">
+	{{#is_loggedin}}
+	
+<div id="topMenuConnexionButtonInside" class="header_connexion">
+	<a href="my-account.php.html">
+        <span id="entete_connexion">My Account</span>		
+	</a>
+</div>
+
+<div id="topMenuConnexion" class="login_box">
+	<div id="topMenuConnexionTop" class="logged">
+		<div id="wrapper_infos_client" class="wrapper_menu_top_connected">
+			<table class="content" cellspacing="0" cellpadding="0" border="0">
+				<tbody class="TopMenuConnexionOn">
+					<tr>
+						<td class="rose" style="padding:16px 31px 0 32px;font-size:14px;color:#000;text-transform:uppercase">
+							                            <span class="customer_name">Dear {{ customer_fname }}</span>
+						</td>
+					</tr>
+
+                    {{#wishlist_active}}
+					<tr style="height:7px">
+						<td>
+							<a id="top_wishlist" class="top_wishlist" href="my-account.php.html#wl">
+								<span>voir_wishlist_button_label</span>
+								<span id="number_wishlist_top" class="gris">(x{{ wishlist_length }})</span>
+							</a>
+						</td>
+					</tr>
+					{{/wishlist_active}}
+
+					<tr>
+						<td class="rose">
+							<span>My information</span>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" title="Informations Personnelles" href="my-account.php%3Faction=edit.html">
+								<span>My personal information</span>
+							</a>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" href="addresses.php.html">
+								<span>My Addresses</span>
+							</a>
+						</td>
+					</tr>
+
+										{{#has_orders}}
+					<tr>
+						<td class="rose">
+							<span>My Orders</span>
+						</td>
+					</tr>
+
+					{{#has_pending_orders}}
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" title="Mes commandes" href="my-orders.html">
+								<span>My orders</span>
+							</a>
+						</td>
+					</tr>
+					{{/has_pending_orders}}
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" href="my-messages.php.html">
+								<span>My Messages</span>
+							</a>
+						</td>
+					</tr>
+                    
+                    						<tr>
+							<td>
+								<span class="tiret_top"></span>
+								<a class="lien_top" href="wishlist.html">
+									<span>My Wishlist</span>
+									<span id="number_wishlist_top" class="gris">(x{{ wishlist_length }})</span>
+								</a>
+							</td>
+						</tr>
+										{{/has_orders}}
+										<tr>
+						<td class="rose">
+							<span>Newsletters</span>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" href="newsletter.php.html">
+								<span>Newsletters</span>
+							</a>
+						</td>
+					</tr>
+                    
+                                        
+                    <tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" href="contact.php.html">
+								<span>FAQ</span>
+							</a>
+						</td>
+					</tr>
+
+                    <tr>
+                    	<td height="19">&nbsp;</td>
+                    </tr>
+
+					<tr class="topMenuConnexionBottom deconnect_block" height="28">
+                        <td colspan="3">
+                        	<table cellpadding="0" cellspacing="0">
+                            	<tr>
+                                	<td width="31" colspan="3">&nbsp;</td>
+
+									<td class="topMenuConnexionBottomInside btn_deconnect" colspan="3" width="199">
+										<a id="btn-disconnect" href="javascript:void(0)" onclick="waitingProcess.call(this, this.nextElementSibling, 2)">
+											<span>deconnexion</span>
+										</a>
+
+										<div id="loader_4" class="loader_connexion" style="display:none">
+											<img src="img/ajaxLoader.1525354336.gif" width="25" height="25" />
+											<span>Please wait</span>
+										</div>
+									</td>
+
+                                	<td width="32" colspan="3">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+	{{/is_loggedin}}
+	{{^is_loggedin}}
+	<a href="my-messages.php.html">	
+		<div id="topMenuConnexionButtonInside" class="header_connexion">
+			<span class="picto vector_sprite power"></span>
+			<span id="entete_connexion">My Account</span>
+		</div>
+	</a>
+	{{/is_loggedin}}
+</div>
+<table cellspacing="0" cellpadding="0" border="0" id="bloc_erreur" class="tooltip cache" width="280">
+	<tr>
+		<td class="content_tooltip" colspan="2" width="290"><div id="erreur_msg"></div></td>
+	</tr>
+	</table>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+	jQuery('#show_search').on({
+		click : function () {
+			
+			jQuery(this).hide();
+			jQuery('#search_home').css("border","0px");
+            
+            if($('.en').length) {
+                var input_size = "+=150";
+            }else {
+                var input_size = "+=265";
+            }           
+			
+			jQuery('#search_home').stop(true, true).animate({
+				width: input_size
+			}, 300, function(){
+				jQuery(this).focus();                    
+			}); 
+			jQuery('.icon_search').css("right","190px"),300;        
+		}
+		
+	});
+
+	
+	function repli_search() {
+		jQuery('#show_search').show();
+		jQuery('#search_home').stop(true, true).animate({
+			width: "0"
+		}, 300, function() {
+			jQuery(this).css("border","0px")
+		});
+		jQuery('.icon_search').css("right","0"),300;  
+	}
+</script></header>
+			<div class="header_tunnel">
+				<a class="mysuelly" href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html"></a>
+			</div>
+			<section id="site_global_wrap" class="main_wrapper"><div id="wrapper_cgv_title">
+    <h2 class="big_title_charte main_title">Terms and Conditions</h2>
+    
+<div class="all_wrapper wrapper_ariane">
+
+	<a href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html" class="fil_home">Home</a>
+                                            	                <span class="sep"></span>
+                                    <span class="current_ariane">Conditions g&eacute;n&eacute;rales de Vente</span>
+                                                         
+</div>    <div id="middle_box_cgv" class="middle_box">
+    	<div class="title_line"><span>General Terms and Conditions</span></div>
+        <article class="sat_article" name="foreword">
+            <h3 class="big_title_charte">
+                <span>PREAMBLE</span>
+            </h3>
+    
+            <p class="articles">These General Terms and Conditions of sale (hereinafter referred to as &ldquo;GTC&rdquo;) are concluded exclusively between (1) the company LIMA, registered in the Paris Companies Register under reference no. 822 502 662 and headquartered at 13 rue Poissonni&egrave;re, as editor of the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>, a service of Webpopulation, the exclusive holder of the internet usage rights of the brand MYSUELLY (hereinafter referred to as www.mysuelly.com and (2) all persons who purchase goods on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a> (hereinafter referred to as the &ldquo;customer&rdquo;.</p>
+            <p class="articles">In accepting the present GTC, the Customer formally declares that he/she is a specific, natural person and is not a professional or a trader, that he/she is of age or has parental consent and that he/she has full legal capacity to place and complete an online order on the website www.mysuelly.com (hereinafter referred to as <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>)</p>
+            <p class="articles">The Customer and  MYSUELLY hereby mutually agree that their relationship shall be governed exclusively by the present General Terms and Conditions of sale.<br>In this regard, the Customer acknowledges  that any order validated by &ldquo;double-clicking&rdquo; implies his/her irrevocable acceptance of the present General Terms and Conditions of sale. This validation of the Customer in connection with the authentication process and the non-repudiation and protection of the messages involved constitutes the expression of the unequivocal wishes of the Parties deemed as signatories to an online bill of sale.</p>
+            <p class="articles">MYSUELLY reserves the right to adapt or amend these General Terms and Conditions of sale at any time. Every order shall be deemed to have been concluded in accordance with the terms of the GTC in effect on the date of the placement of the order on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>, the effective date to be determined by the publication date of the GTC.</p>
+            <p class="articles">For any questions concerning an online purchase, the Customer may contact the MYSUELLY customer service team<br>-  either directly on the website by means of the contact forms accessed via his/her &ldquo;My account&rdquo; area<br>-  or by telephone on: +33 (0)1 71 70 34 44 (surcharged call), Monday to Friday between 10:00 a.m. and 5:00 p.m.<br>-  or by email at: sav@mysuelly.com</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article1">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 1. VALIDATING AN ORDER ON THE WEBSITE <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a></span>
+            </h3>
+    
+            <p class="articles">When completing an order on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>, the Customer will be guided through the following steps:<br>-  Addition of the desired products from the selection on offer to the &ldquo;basket&rdquo;,<br>-  Selection of the delivery method for the products added to the &ldquo;basket&rdquo; when prompted,<br>-  Presentation  the order summary, which can be modified, and the total price,<br>-  Selection of payment method,<br>-  Issuing of a validation email concerning the Customer&rsquo;s order, confirming the registration of the order after payment has been accepted.</p>
+            <p class="articles">The order validation email sent to the Customer confirms the acceptance of the Customer&rsquo;s order by MYSUELLY and the conclusion of the contract of sale between the Parties.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article2">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 2. VALIDITY OF OFFERS – PRODUCT AVAILABILITY</span>
+            </h3>
+    
+            <p class="articles">The products advertised on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>  at any given time are deemed in stock and available in principle at that same time, with the exception of a limited-time offer as part of a special offer expressly mentioned, such as that on the product page.</p>
+            <p class="articles">This theoretical availability is checked after payment of the order is accepted and is confirmed upon the issuing of the dispatch email by MYSUELLY.<br>Should one or several products be unavailable, MYSUELLY shall offer the Customer a new delivery date for the product(s) ordered or a refund via the payment method used to pay for the order within 14 calendar days of the payment for the order. Should it be impossible to refund the money using the payment method originally used due to technical issues, MYSUELLY shall offer to issue a cheque in the name of the Customer and send this to the Customer by post to his/her specified invoicing address.</p>
+            <p class="articles">Product offers and prices are deemed to be those indicated on the &ldquo;BASKET&rdquo; page when the Customer is going to the checkout page on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>.  Thus, only the price indicated on this page, corresponding to the invoice issued to the Customer for the order, shall be used as proof and shall bind MYSUELLY from a contractual point of view. Accordingly, MYSUELLY shall not be bound by any typographical error that may arise on any other page affecting the graphic and/or promotional elements on the website.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article3">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 3: PRICE</span>
+            </h3>
+            
+            <p class="articles">The prices indicated on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>  are listed in euros (&euro;) and are intended as public prices including taxes and charges and are valid in mainland France on the enquiry date for these offers. VAT shall be applied based on the applicable rate in force on the date on which the order is placed. Specific taxes applicable by law other than VAT (such as ecotaxes and contributory ecotaxes) are only indicated on the shopping basket page, which is the only page that can be used as proof of the purchase price as outlined in the last paragraph of Article 2 above.</p>
+            <p class="articles">All prices displayed on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a> exclude shipping and assembly costs as well as the costs associated with any additional service provided. The prices indicated include only the price of the product itself as described, as well as its packaging.</p>
+            <p class="articles">MYSUELLY reserves the right to change its prices at any time, but undertakes to apply the rates displayed at the time at which the order is placed, subject to the availability of the product on that date.</p>
+            <p class="articles">Products shall remain the property of MYSUELLY until the order has been paid for in full.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article4">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 4: PAYMENT</span>
+            </h3>
+    		
+            <p class="under_title">4.1 PAYMENT METHODS</p>
+            <p class="articles">Regardless of the payment method chosen from those accepted on our website, orders shall not be considered registered until payment has been validated or received.<br>This means that the order will not be prepared by MYSUELLY services until payments has been validated by the intermediary selected by the consumer.</p>
+            
+            
+            <p class="under_sub_title">4.1.1 Cash payment by credit/debit  card</p>
+            <p class="articles">We accept payments the following cards: Debt card, VISA, MASTERCARD and MAESTRO, AMEX<br>The Customer should also refer to the  General Terms and Conditions of Sale and Use for each of these cards on the websites of our partners.<br>Choosing to pay using one of these cards implies tacit acceptance of the general terms and conditions of sale and use of the aforementioned partners.<br>We refer our customers to these terms and conditions, since MYSUELLY cannot be held responsible for the conditions imposed by these independent partners.</p>
+            <p class="articles">Online payment via credit/debit card is perfectly secure and customers can enter the number, expiration date and security code in the fields provided in peace of mind. Credit/debit card details are encrypted by means of an SSL (Secure Socket Layer) protocol and will never be sent via the network unencrypted. The payment is made directly from the bank. MYSUELLY shall never have any access to these details and shall not store them on its servers. This is the reason why customers are asked to enter the details again for each transaction made on our website.</p>
+            
+            <p class="under_sub_title">4.1.2 Cash payment via PayPal</p>
+            <p class="articles">Card payments via PayPal are also accepted on the <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>  website and shall be completed via the intermediary of the partner in question and in accordance with the general terms and conditions of sale and use applicable to the services of the partner.<br>Choosing to pay using one of these cards implies tacit acceptance of the general terms and conditions of sale and use of the Partner.<br>We refer our customers to these terms and conditions, since MYSUELLY cannot be held responsible for the conditions imposed by these independent partners.<br><a href="https://www.paypal.com/uk/webapps/mpp/ua/useragreement-full">Paypal user agreement</a></p>
+            
+            <p class="under_sub_title">4.1.3. Payment via bank transfer</p>
+            <p class="articles">Payment of an order via bank transfer is carried out via the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>. When a Customer chooses this payment method, the MYSUELLY bank details (IBAN) are sent to the Customer so that he/she can proceed with the transfer. In this case, the acceptance of the payment is subject to the arrival of the payment in the MYSUELLY bank account. MYSUELLY shall accept no responsibility with regard to the conditions of use concerning such services, which are governed between the Customer and his/her bank and to which the Customer is referred.</p>
+            
+            <p class="under_sub_title">4.1.4. Payment by cheque</p>
+            <p class="articles">Payment of an order by cheque is not accepted on <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a></p>
+            
+            
+            <p class="under_title">4.2 COMBATING FRAUD</p>
+            <p class="articles">MYSUELLY reserves the right to verify the validity of the payment by any means it deems necessary (in particular, identity documents, proof of address, etc.) before dispatching the order.</p>            
+            
+            <p class="under_title">4.3 PAYMENT INCIDENTS</p>
+            <p id="livraison" class="articles">MYSUELLY reserves the right to refuse to dispatch a shipment or honour an order received from a Customer who has not or has only partially paid for a previous order or with whom there is an ongoing payment dispute. In the event of fraud, MYSUELLY reserves the right to deregister any member without any prior warning or compensation.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article4">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 5: DELIVERY</span>
+            </h3>
+            
+            <p class="under_title">5.1 ORDER PREPARATION TIMES</p>
+            <p class="articles">MYSUELLY reserves the right to subcontract part or all of the preparation and dispatching of the order to a third party tasked with the performance of these services.<br>All products sold by MYSUELLY are known to be available and in stock. Orders are prepared and handed over to the shipping company within 48 working hours of the first working day following the registration of the order as outlined in the present GTC. Most orders submitted on a Saturday, Sunday or holiday will be handled on the following working day.</p>
+            <p class="articles">The time it takes for the parcel to be handed over to the shipper and the shipper&rsquo;s delivery time are not included in this period.<br>All times mentioned on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.myseully.com</a> are calculated in full days (24 hours).<br>The product ordered shall be delivered to the address indicated on the purchase order and identified as the &ldquo;delivery&rdquo; address.<br>MYSUELLY shall not be liable for the consequences (delay, inability to deliver) arising  from any data input error, particularly in the form of an incorrect or incomplete delivery  address. The Customer shall be exclusively liable for all costs associated with reshipping the products following an error for which the Customer is responsible.</p>
+            
+            <p class="under_title">5.2 ORDER DELIVERY DATES</p>
+            <p class="articles">MYSUELLY reserves the right to choose the most suitable mode of transport based on the nature of the product as well as its weight and volume; the Customer hereby declares his/her awareness and acceptance of this right.</p>
+            <p class="articles">Delivery dates may not exceed 30 working days after the date on which the Customer’s payment is validated (order registration date).</p>
+            <p class="articles">Delivery times cannot be guaranteed in the case of force majeure as defined in the relevant legislation and case law. Delivery times do not take into account any payment monitoring procedures pertaining to the Customer’s payment that may delay the dispatch of the order (cf. provisions set forth in Article 4.2).<br>The delivery times confirmed commence upon order registration. The estimated delivery time is indicated on the order and on each product description. This period is an average period corresponding to the service used for delivery in mainland France. If the Customer is not at home when delivery is attempted, the Customer shall be responsible for collecting the product from the service concerned.</p>
+            <p class="articles">In cases where the shipper must forward the product to the delivery address provided by the Customer, the Customer must indicate the time(s) at which he/she will be available on the order. The shipper will then contact the Customer as soon as possible to arrange a date to hand over the delivery. MYSUELLY shall not be liable for any delay in delivery arising from the non-availability of the Customer.</p>
+                        
+            <p class="under_title">5.3 DELIVERY TRACKING</p>
+            <p class="articles">The Client may track the order at any time using the order number included in the email formally confirming his/her order in the &ldquo;My Account&rdquo; area of the website www.mysuelly.com.</p>
+            <p class="articles">This area allows for precise tracking of the order and its status for every possible mode of transport; this is particularly relevant with regard to the dispatching and delivery of the order.</p>
+            <p class="articles">It should be noted that since all communication between the Customer and the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a> takes place essentially via email, it is vital that customers provide MYSUELLY with a valid email address that is checked regularly. Should the Customer fail to do so, MYSUELLY shall not be liable for the consequences arising from communication to an incorrect email address or one that is not checked regularly.</p>
+            
+            <p class="under_title">5.4 DELIVERY REGIONS</p>
+            <p class="articles">we deliver within mainland France and internationally.</p>
+            
+            <p class="under_title">5.5 SPECIFIC DELIVERY METHODS</p>
+            <p class="articles">The delivery methods for MYSUELLY products are determined by  MYSUELLY and  depend on their acceptance in terms of postal volumes.</p>
+            <p class="articles">The Customer may choose between delivery to a collection point or delivery to his/her home by Colissimo (served by la Poste, the French postal system, in mainland France) or a specialised shipping company for international orders.</p>
+            <p class="articles">After validating these delivery methods and before the order has been released for payment, the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a> shall issue an order summary, listing the mode of transport for which the products in question are eligible in accordance with the option selected by the Customer from the options proposed. The cost of the modes of transport affected or selected will therefore be indicated before the order is released for payment.</p>
+            <p class="articles">When the order has duly been prepared and is ready for dispatch, the Customer will receive an email concerning the dispatch of each part of the order via the mode of transport agreed.</p>
+            <p class="articles">&nbsp;&nbsp;&rArr;&nbsp;&nbsp;<em><u>Delivery to collection point:</u></em><br>For Customers who select the &ldquo;Collection point&rdquo; option, MYSUELLY will provide a list of the name and addresses of those professionals offering these services closest to the delivery address chosen. In this case, the Customer will be able to check the opening times and days of the selected collection point.<br>Once the order has arrived at the collection point, the Customer will have 14 calendar days to collect the parcel(s). Otherwise, the order will be returned to MYSUELLY, which will contact the Customer via email to arrange another delivery at the Customer&rsquo;s expense. In the absence of a reply within 7 days of this email, MYSUELLY will consider the Customer as having exercised his/her right of return and will proceed with a refund based on the conditions set forth concerning the exercising of the right of withdrawal (cf. Article 6-1 in the present GTC).</p>
+            <p class="articles">&nbsp;&nbsp;&rArr;&nbsp;&nbsp;<em><u>Delivery by Colissimo:</u></em><br>Delivery by Colissimo is a service offered by French post offices and is subject to their own General Terms and Conditions of Use. If the Customer is not at home and it is not possible to leave the parcel with a caretaker, the Customer will receive a notice of non-delivery. He/She will then have 14 days to go and retrieve the parcel from the post office indicated on the notice. Otherwise, the order will be returned to MYSUELLY, which will contact the Customer via email to arrange another delivery at the Customer&rsquo;s expense. In the absence of a reply within 7 days of this email, MYSUELLY will consider the Customer as having exercised his/her right of return and will proceed with a refund based on the conditions set forth concerning the exercising of the right of withdrawal (cf. Article 6-1 in the present GTC).</p>
+            <p class="articles">Should there be any problem with the delivery, the Customer should write down any concerns on the dispatch note provided by the shipper. For all practical purposes, it should be noted that concerns expressed by the Customer serve to confirm the presence and the significance of any damage at the time of or during delivery. The Customer must indicate his/her concerns in the form of handwritten, detailed, dated, explicit observations that are accompanied by a signature on the delivery note in order for these to be admissible.</p>
+            <p class="articles">These problems may include, for example:<br />&nbsp;&nbsp;-&nbsp;&nbsp;Product worn: scratches, dents, bumps, etc.<br />&nbsp;&nbsp;-&nbsp;&nbsp;Product non-compliant (incorrect reference, colour, etc.) or incorrect quantity.</p>
+            <p class="articles">However, simply adding wording such as &ldquo;unpacked&rdquo; or &ldquo;damaged&rdquo; is not sufficient to cover the Customer with regard to the warranty if the product has been unpacked and does not allow damage to be confirmed.</p>
+            
+            <p class="under_title">5.6 DELIVERY CHARGES</p>
+            <p class="articles">Transportation charges are calculated on the basis of both the destination and the weight of the parcel.<br>The rates indicated are listed in euros (&euro;) and include all taxes and charges, including the applicable VAT at the rate in force on the day of delivery.</p>
+            <p class="articles">When a product is added to the basket, the charges are calculated automatically based on delivery to mainland France. The Customer can freely check the charges and the shipper associated with his/her products.</p>
+            <p class="articles">The definitive calculation of the charges applicable for delivery to other destinations occurs once the postal code has been entered as part of the delivery address and before the Customer validates the order.</p>
+            <p class="articles">Specific offers in terms of delivery charges are only valid for deliveries in mainland France unless expressly stipulated otherwise.</p>
+    
+                        
+        </article>
+    
+            
+        <article class="sat_article" name="article6">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 6: RIGHT OF WITHDRAWAL</span>
+            </h3>
+    
+            <p class="under_title">6.1. CONDITIONS CONCERNING THE EXERCISING OF THE RIGHT OF WITHDRAWAL</p>
+            <p class="articles">&nbsp;&nbsp;&rArr;&nbsp;&nbsp;<em><u>Notice period</u></em><br />In line with the provisions set forth in Article L. 121-21 of the French Consumer Code, the Customer has a notice period of 14 days to exercise his/her right of withdrawal without needing to state any reason. This period shall commence the day the order is received. In the case of an order involving multiple goods delivered separately or an order for a product composed of multiple pieces, the delivery of which is  staggered over a defined period, the notice period will commence from the date the last product or piece is delivered. For contracts involving the regular delivery of products over a defined period, the notice period will begin from the date on which the first product is received.</p>
+            <p class="articles">&nbsp;&nbsp;&rArr;&nbsp;&nbsp;<em><u>Exercising the right of withdrawal</u></em><br />In order to exercise his/her right of withdrawal, the Customer must  inform MYSUELLY of his/her decision to do so by submitting the withdrawal form provided before the 14-day notice period comes to an end. This form will have been sent to the Customer along with the order confirmation email (and a copy is included as an Appendix to the present GTC), or any other unambiguous declaration expressing his/her wish to withdraw. MYSUELLY also allows the Customer to withdraw online by logging into his/her personal section of the website in the &ldquo;My Account&rdquo; area.</p>
+            <p class="articles">&nbsp;&nbsp;&rArr;&nbsp;&nbsp;<em><u>Loss of the right of withdrawal</u></em><br />As outlined in Article L 121-21-8 of the French Consumer Code, it should be noted that the right of withdrawal cannot be used for contracts concerning the following: 1&deg; The provision of services provided fully before the end of the withdrawal period and the provision of which commenced following a prior express agreement with the Customer, expressly renouncing his right of withdrawal;</p>
+            <p class="articles">2&deg; The provision of goods or services the prices of which depend on fluctuations on the financial market and are beyond the control of the professional and  likely to change during the withdrawal period;</p>
+            <p class="articles">3&deg; The provision of goods produced on the basis of customer specifications or clearly personalised goods;</p>
+            <p class="articles">4&deg; The provision of goods likely to deteriorate or expire quickly;</p>
+            <p class="articles">5&deg; The provision of goods that have been unsealed by the Customer after delivery and which cannot be returned for hygiene or health reasons;</p>
+            <p class="articles">6&deg; The provision of goods which, by their nature, are combined following delivery with other items such that they cannot be separated ;</p>
+            <p class="articles">7&deg; The provision of alcoholic drinks, the delivery of which is delayed by over thirty days and the value of which arranged upon conclusion of the contract depends on market fluctuations that are beyond the control of the professional;</p>
+            <p class="articles">8&deg; Urgent maintenance or repair works to the home of the Customer and expressly requested by him/her, limited to spare parts and work that is strictly necessary to respond to the urgency;</p>
+            <p class="articles">9&deg; The provision of audio or video recordings or of computer software if these have been opened by the Customer following delivery;</p>
+            <p class="articles">10&deg; The provision of a newspaper, periodical or magazine, with the exception of subscriptions to these ;</p>
+            <p class="articles">11&deg; Agreements concluded at public auctions;</p>
+            <p class="articles">12&deg; The provision of services concerning accommodation, other than residential accommodation, goods transportation services, car rental services, catering services or services concerning leisure activities that must be provided on a specific date or within a specific period;</p>
+            <p class="articles">13&deg; The provision of digital content not supplied on a hardware device, the execution of which has commenced following a prior agreement with the Customer, expressly renouncing his right of withdrawal.</p>
+            <p class="articles">&nbsp;&nbsp;&rArr;&nbsp;&nbsp;<em><u>Condition concerning the condition of the product</u></em><br />In order for the Customer to be able to exercise this right of withdrawal, the product returned must be in a such a condition that will allow it to be resold immediately. The product must therefore be returned in as-new condition, along with the various notices and accessories delivered with it, and in its original packaging. MYSUELLY reserves the right to refuse a refund for a product if all of these conditions have not been fulfilled.</p>
+            <p class="articles">&nbsp;&nbsp;&rArr;&nbsp;&nbsp;<em><u>Reimbursement methods</u></em><br />Should the Customer choose to exercise his/her right of withdrawal within the aforementioned notice period, and in line with the provisions set forth in Article L121-21-4 of the French Consumer Code, MYSUELLY shall reimburse the Customer within 14 calendar days from the date on which the Customer informs MYSUELLY of his/her decision to withdraw<br />However, MYSUELLY reserves the right to delay the reimbursement until the goods have been recovered or until the Customer has provided proof of dispatch of these goods, the date selected being the first of these two events.<br />The refund shall always be based on the sums effectively paid by the Customer, as indicated on the invoice. Nevertheless, MYSUELLY reserves the right to refuse to refund the additional shipping costs incurred as a result of a more costly shipping method chosen expressly by the Customer despite MYSUELLY&rsquo;s proposal of a standard delivery method.<br />The shipping costs to be refunded shall be determined as if the customer had never purchased the product(s) returned.<br />Finally, in principle and unless the Customer expressly requests otherwise, MYSUELLY shall proceed with refunding the latter by means of the payment method used during payment. In the case of a material impossibility preventing the use of this method, MYSUELLY shall propose sending a cheque for the amount due to the Customer by post.</p>
+            <p class="articles">&nbsp;&nbsp;&rArr;&nbsp;&nbsp;<em><u>Liability for shipping costs for return delivery</u></em><br />The Customer  shall be expressly liable for the costs of the return delivery and acknowledges and accepts this liability by complying with the present General Terms and Conditions of Sale.<br />Nonetheless, by way of derogation from this principle, MYSUELLY will be able to take charge of product returns deposited by the Customer at a collection point or shipped by Colissimo in accordance with the terms indicated above as part of a commercial offering if desired.</p>
+            
+            
+            <p class="under_title">6.2. PRODUCT RETURN METHODS</p>
+            <p class="articles">Following his/her withdrawal, the Customer must return his/her products to MYSUELLY without excessive delay, no later than within 14 days following his/her announcement of his/her decision to withdraw.</p>
+            <p class="articles"><strong>Free return</strong> (in collect points for France delivery – except TNT)<br><br>&nbsp;&nbsp;1.&nbsp;&nbsp;Go to the "My Account" customer area<br>&nbsp;&nbsp;2.&nbsp;&nbsp;Click on the order concerned<br>&nbsp;&nbsp;3.&nbsp;&nbsp;Click on the "Get a return number" button<br>&nbsp;&nbsp;4.&nbsp;&nbsp;Pack the product(s) to be returned and attach the completed delivery slip.<br>&nbsp;&nbsp;-&nbsp;&nbsp;Write the return number on the box (legibly and permanently). Packages without a return number cannot be processed.<br>&nbsp;&nbsp;-&nbsp;&nbsp;Make sure to wrap the package properly (consult the official recommendations)<br>&nbsp;&nbsp;5.&nbsp;&nbsp;Ship your package to the following address:<br>D&eacute;p&ocirc;t Bingo<br>Service Retour Mysuelly<br>PARC D&apos;ACTIVITE DE LA BELLE ASSISE<br>OURSEL MAISON<br>60122 BRETEUIL CEDEX</p>
+            <p class="articles"></p>
+            
+            
+        </article>
+    
+
+        <article class="sat_article" name="article7">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 7: COMPLAINTS ABOUT AN ORDER</span>
+            </h3>
+    
+            <p class="articles">If, while unpacking or assembling the products and within 15 calendar days of receiving them, the Customer discovers that a product does not comply with the order or the order description (e.g. Wrong product, model, colour, etc.), MYSUELLY shall replace the product or reimburse the Customer for all costs as soon as the alleged error is confirmed.</p>
+            <p class="articles">To this end, the Customer must contact MYSUELLY  via the &ldquo;Request return&rdquo; form on the website and follow the same procedure as that for product returns, which is described in Point 6.2 above.<br>After receipt of the returned product and confirmation of the non-conformity or damage highlighted by the Customer, MYSUELLY may, at its sole discretion:<br>&nbsp;&nbsp;-&nbsp;&nbsp;either send a new product to the Customer at no additional cost,<br>&nbsp;&nbsp;-&nbsp;&nbsp;or refund the sums paid during the purchase of the product.<br>Any other potential defect over the lifetime of the product must be addressed to the after-sales service to be evaluated.</p> 
+        </article>
+    
+        <article class="sat_article" name="article8">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 8 AFTER-SALES SERVICE</span>
+            </h3>
+                
+            <p class="articles">Apart from the commercial or legal warranty, the Customer can always contact the MYSUELLY Customer Service Team with any questions about the use of a product, its maintenance or having ordered an item that has become defective.</p>
+            <p class="articles">To avail of this service, the Customer must simply log into his/her personal account and go to the &ldquo;After-sales service request&rdquo; section. After filling in the dedicated contact form for the service, the customer will be contacted with a proposed course of action, accompanied by a quote.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article9">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 9: INTELLECTUAL PROPERTY</span>
+            </h3>
+    
+            <p class="articles">All content on the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>, whether visual or audio, including the brand, the logo, the text, the photos, the videos and the domain name, is protected by copyright, trademark law or patents. The editor of the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a>  holds a license agreement and usage rights that pertain exclusively to the owner. Therefore, and in line with the provisions set forth in the French Intellectual Property Code, this content is intended for private use only, subject to any differing or more restrictive provisions in the French Intellectual Property Code.<br>The reproduction, either in whole or in part, of the website <a href="maroquinerie/sac-a-bandoulieres.html">www.mysuelly.com</a> or of any of its audio, visual or text content is strictly prohibited without prior, express, written permission.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article10">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 10: LIABILITY</span>
+            </h3>
+    
+            <p class="articles">For all stages of access to the website, from order placement and delivery to customer service or subsequent services, MYSUELLY shall only support a single obligation of means. Consequently, MYSUELLY shall not be held liable for any inconvenience or damage connected with the use of the internet, particularly a breakdown in service, external interference or the presence of computer viruses , or considered force majeure, in line with the existing case law.<br>Furthermore, MYSUELLY shall not be liable in cases where the order will not result in, or will result in MYSUELLY being prevented from respecting any of its obligations in cases of force majeure, as per the existing case law, and particularly in the case of inclement weather preventing the dispatch of the order.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article11">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 11: COMPLETENESS OF THE DOCUMENT</span>
+            </h3>
+    
+            <p class="articles">Should one of the clauses of the present Contract be declared null and void by a change in legislation, regulations or a court ruling, this shall not affect the validity of the remaining provisions of the present General Terms and Conditions of Sale.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article12">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 12: DURATION</span>
+            </h3>
+    
+            <p class="articles">The present GTC shall apply for the entire duration for which the services and products of MYSUELLY are offered online.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article13">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 13: RECORDS</span>
+            </h3>
+    
+            <p class="articles">The computerised records, which are stored in the computer systems of MYSUELLY and its partners under reasonable security conditions, shall be considered as records of communications, orders payments that have taken place between the Parties.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article14">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 14: RECORDING AND ARCHIVING OF TRANSACTIONS</span>
+            </h3>
+    
+            <p class="articles">Purchase orders and invoices are archived using reliable, durable supports so as to produce a reliable, durable copy as required under Article 1348 of the French Civil Code.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article15">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 15: LEGAL DISPUTES</span>
+            </h3>
+    
+            <p class="articles">The present conditions are subject to French law.<br>In the event of a legal dispute, MYSUELLY and the Customer shall attempt to resolve the matter amicably, either through a conventional mediation process or using any alternative method for resolving their differences. Should these attempts fail, only the French courts shall be competent.</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article16">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 16: MYSUELLY CUSTOMER SERVICE</span>
+            </h3>
+    
+            <p class="articles">&nbsp;&nbsp;-&nbsp;&nbsp;The MYSUELLY Customer Service Team is available to the Customer to assist with any requests for information or questions and can be contacted as follows:<br>&nbsp;&nbsp;-&nbsp;&nbsp;via telephone on +33 (0)1 71 70 34 44 (non-surcharged call), Monday to Friday from 10:00 a.m. - 5:00 p.m.<br>&nbsp;&nbsp;-&nbsp;&nbsp;via electronic means using the contact form after logging into the &ldquo;My Account&pound; area, or by emailing Sav@mysuelly.com<br>The email address used for the Customer account should be used for all subsequent electronic correspondence.<br>&nbsp;&nbsp;-&nbsp;&nbsp;or by post to: 13 rue poissonni&egrave;re 75002 PARIS, FRANCE</p>
+            
+        </article>
+    
+        <article class="sat_article" name="article17">
+            <h3 class="big_title_charte">
+                <span>ARTICLE 17: DATA PROCESSING AND LIBERTIES</span>
+            </h3>
+    
+            <p class="articles">MYSUELLY reserves the right to collect Customer data, particularly through the use of cookies. Subject to the Customer&rsquo;s consent, MYSUELLY may, for commercial reasons, transmit the identity and details of the Customer to its business partners. Customers are therefore hereby informed that this automated processing of information, particularly the management of users&rsquo; email addresses, is the subject of a declaration to the French data protection agency (CNIL) under ref. no.  2051404 v 0 dated 05/04/2017.</p>
+            <p class="articles">In compliance with Law No. 78-17 dated 6 January 1978 concerning data processing, files and liberties, the Customer has the right to access, amend, rectify and delete his/her data. We offer customers the option to exercise these rights by contacting us at the above address.</p>
+                       
+        </article>
+                    
+        <article class="sat_article" name="article18" id="article18">
+            <h3 class="big_title_charte">
+            <span>ARTICLE 18: COOKIES</span>
+            </h3>
+            
+            <p class="articles">cgv_article_text_18_10</p>
+            <p class="articles">Our Website is particularly responsive to the needs of our customers.<br><br>We use cookies in order to provide you with a personalized service targeted at you, and to ensure that the services and offers proposed to you are relevant to you.</p>
+            <p class="articles">WHAT IS A COOKIE?<br><br>A cookie is a piece of information placed on your computer by the server of the site you are visiting. It contains several data items: the name of the server that placed it; an identifier in the form of a unique number, possibly an expiry date, etc.<br><br>This information is sometimes stored on your computer in a simple text file which the server accesses in order to read and record information.<br><br>THE ROLE OF COOKIES ON Mysuelly.com<br><br>Cookies play an essential role in the way that Mysuelly.com operates.<br><br>Their main purpose is to improve your experience on the site.<br><br>Some cookies are used to remember your preferences and certain information about your browsing on our Website (pages viewed, etc.).<br><br>For example, Mysuelly.com uses cookies to remember your shopping cart so that you can make your purchases online.<br><br>The cookies issued by our company are used in particular to improve the presentation of the site and the information about the products offered (aimed at making this information more relevant based on the information provided by the user).<br><br>Cookies also help to better adapt and personalize the offers proposed to you.<br><br>We use several types of cookies:<br><br>Cookies that enable you to identify yourself and consequently to access your account, your shopping cart, etc.<br><br>Cookies used to remember the elements that open up on the site in the form of windows (or other elements) and which you have already viewed on a previous visit.<br><br>Cookies which help to adapt the presentation of the site to your computer&apos;s display preferences.<br><br>Cookies which help to establish visit statistics.<br><br>Cookies which help to evaluate the overall use of the Website by users.<br><br>Cookies which help to generate offers based on user interests.<br><br>Using them, we can also propose an appropriate selection of products and services.<br><br>Other cookies are issued by third parties, and there is no exhaustive list of third party cookies because they are constantly evolving.<br><br>They help to target your interests based on the different pages visited in order to offer appropriate, relevant advertisements.<br><br></p>
+            <p class="articles">CONFIGURING YOUR COMPUTER TO ACCEPT OR REJECT COOKIES<br><br>At any time, you may decide to configure your computer to accept or reject cookies.<br><br>Keep in mind, however, that this may affect your browsing experience and prevent you from accessing certain services.<br><br>You have the option of:<br><br>Systematically recording all cookies issued by the website visited or Systematically rejecting all cookies issued by the website visited<br><br>If you reject cookies issued by our company or delete cookies already recorded by our company, you may not receive some content and services on our website (notably cookies enabling the creation of an online account or the use of certain features of the Mysuelly.com website)<br><br>Where applicable, we decline all responsibility for the consequences related to less effective operation of our services, due to the inability of our services to record or view the cookies you have decided to delete or reject.<br><br>Or configure your browser software to enable you to accept cookies, or to reject the various cookies that may be proposed to you regularly.<br><br>Depending on what you would like and the browser you use, you should go to the page provided for this purpose in order to configure your computer, namely:<br><br>For Internet Explorer:<br>http://windows.microsoft.com/fr-FR/internet-explorer/delete-manage-cookies#ie=ie-11<br><br>For Google Chrome:<br>https://support.google.com/chrome/answer/95647?hl=fr<br><br>For Mozilla Firefox:<br>https://support.mozilla.org/fr/kb/activer-desactiver-cookies<br><br>For Safari:<br>http://www.apple.com/legal/privacy/fr-ww/cookies/<br><br>For Opera:<br>http://help.opera.com/Windows/10.20/fr/cookies.html<br><br>For Dolphin Browser:<br>https://dolphinbrowser.desk.com/customer/portal/articles/1249912-how-do-i-change-the-cookiesettings-?b_id=317</p>
+        </article>
+        
+    </div>
+</div>
+</section>
+		</main>
+
+		<footer id="copyright" class="site_bottom clearfix">	<div class="footer_rassu_wrapper">
+		<ul class="rassurance">
+        	<li class="bloc rassu_sprite satisfait">
+				<div class="title">Money Back Guarantee</div>
+            </li>
+
+			<li class="bloc rassu_sprite paiement">
+				<div class="title">Secured payment</div>
+			</li>
+
+			<li class="bloc rassu_sprite service">
+									<a href="contact.php.html">
+									<div class="title">Customer service</div>
+									<p class="nous_contacter"></p>
+					
+										</a>
+								</li>
+
+            <li class="bloc rassu_sprite livraison">
+				<div class="title">Free delivery</div>
+            </li>
+		</ul>
+	</div>
+
+<div class="footer_about_wrapper">
+    <div class="logo">
+        <img src="svg/mysuelly_logo.svg" alt="Mysuelly" width="205" height="56" />
+    </div>
+
+    <div class="about_wrapper">
+
+    	<!-- Social -->
+        <div class="social">
+            <div class="title">Follow us</div>
+
+            <ul class="social_media">
+                <li class="social_btn facebook">
+                    <a class="block_lnk" target="_blank" href="social_facebook.html">Facebook</a>
+                </li>
+
+                <li class="social_btn instagram">
+                    <a class="block_lnk" target="_blank" href="social_instagram.html">Instagram</a>
+                </li>
+
+                <li class="social_btn pinterest">
+                   <a class="block_lnk" target="_blank" href="social_pin.html">Pinterest</a>
+                </li>
+            </ul>
+        </div>
+
+			<div class="btm_menu"><div id="footerMS">
+	<table id="listes">
+		<tr>
+			<td>
+                <h2><a href="shoes.html" title="Women’s Shoes MySuelly">Shoes</a></h2>
+				<table cellspacing="0" border="0" id="liste1">
+					<tr><td><h3><a href="shoes/boots-oxfords.html" title="Women’s Boots MySuelly">Boots, Oxfords</a></h3></td></tr>
+                                        			<tr><td><h3><a href="shoes/pumps.html" title="Women’s Pumps MySuelly">Pumps</a></h3></td></tr>
+					<tr><td><h3><a href="shoes/sandals-mules.html" title="Women’s Sandals MySuelly">Sandals, Mules</a></h3></td></tr>
+				</table>
+			</td>    
+			
+			<td>           
+                <h2><a href="leather-goods.html" title="Women’s Leather goods MySuelly">Leather goods</a></h2>
+				<table cellspacing="0" border="0" id="liste2">
+					<tr><td><h3><a href="leather-goods/handbag.html" title="Women’s Handbag MySuelly">Handbag</a></h3></td></tr>
+					<tr><td><h3><a href="leather-goods/crossbody-bag.html" title="Women’s Crossbody Bag MySuelly">Crossbody Bag</a></h3></td></tr>
+					<tr><td><h3><a href="leather-goods/small-bag-clutch.html" title="Women's Small Bag MySuelly">Small Bag</a></h3></td></tr>							   
+				</table>                                             
+			</td>  
+			 		
+			<td>           
+                <h2><a href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html" title="MySuelly Paris">MySuelly Paris</a></h2>
+				<table cellspacing="0" border="0" id="liste3">
+                                        <tr><td><h3><a href="home.html" title="La Maison MySuelly">La Maison</a></h3></td></tr>
+					<tr><td><h3><a href="lookbook.html" title="MySuelly Lookbook">Lookbook</a></h3></td></tr>
+					<tr><td><h3><a href="press.html" title="Press MySuelly">Press</a></h3></td></tr>
+										   
+				</table>                                             
+			</td> 
+		</tr>
+	</table>
+</div>
+</div>
+
+        <!-- Newsletter -->
+        <div class="wrapper_news">
+			<div class="text">
+				<p class="title">Newsletter</p>
+			</div>
+
+			<form class="footer_news_form" onsubmit="return false;">
+				<input id="newsletter_email" type="text" name="email" autocomplete="email"  placeholder="E-mail"/>
+				<input id="newsletter_home" type="submit" value="Ok" />
+			</form>
+			<div class="media">
+				<div class="media_news">
+					<div class="text">
+						<p id= 'infos'></p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+	<div class="copyright">
+		<ul class="satellites">
+			<li class="sat_lnk">
+				<a href="site-map.php.html">Site map</a>
+			</li>
+
+            <li class="sat_lnk">
+				<a href="la-maison.html">La Maison</a>
+			</li>
+
+             <li class="sat_lnk">
+				<a href="shop.php.html">Our stores</a>
+			</li>
+
+            <li class="sat_lnk">
+				<a href="return-procedure.php.html">Delivery & returns</a>
+			</li>
+
+			<li class="sat_lnk">
+				<a href="legal-notice.php.html">Legal mentions</a>
+			</li>
+
+            <li class="sat_lnk">
+				<a href="terms-and-conditions.php.html">Terms and Conditions</a>
+			</li>
+
+			<li class="sat_lnk">
+				<a href="contact.php.html">Customer Service</a>
+			</li>
+		</ul>
+
+		<p class="copyright_mention">
+			<a href="http://www.webpopulation.fr/wshop.html" target="_blank" title="WSHOP&reg;">
+				<span>WSHOP&reg;</span>
+			</a>
+		</p>
+	</div>
+</div>
+
+<div class='footer_recall_produits' id="footer_recall_produits" style="display:none">
+	</div>
+
+<script>
+
+    var socialButtons = {};
+
+            (function (d) {
+
+            var js, id = 'facebook-jssdk';
+
+            if (d.getElementById(id)) return;
+
+            js = d.createElement('script');
+            js.id = id;
+            js.async = true;
+            js.src = "//connect.facebook.net/fr_FR/all.js";
+
+            d.getElementsByTagName('head')[0].appendChild(js);
+        }(document));
+
+        socialButtons.FBConnectButton = ".fb_connect";
+
+        window.fbAsyncInit = function(){
+            FB.init({
+                appId : 1443973878992238,
+                status : true, // check login status
+                cookie : true, // enable cookies to allow the server to access the session
+                oauth : true, // enable cookies to allow the server to access the session
+                xfbml : true // enable cookies to allow the server to access the session
+            });
+        };
+
+        $(function () {
+
+            var socialConnector = new SocialConnector(socialButtons);
+
+            if (socialConnector !== null) {
+
+                socialConnector.addEventListener('authRequest', function () {
+
+                }).addEventListener('connected', function () {
+
+                    window.location.reload();
+                }).addEventListener('connectFailure', function (response) {
+
+                    alert(response.message);
+                }).addEventListener('appError', function (response) {
+
+                    alert(response.message);
+                });
+            }
+        });
+    
+</script>
+
+
+            <div id="mention_legales_pop_up">
+            <div id="content_mention_legales_pop_up">
+                <p id="fermer_mention_legales_pop_up"><a href="javascript:;" class="btn_retour" onclick="close_popup('mention_legales_pop_up')">Close</a></p>
+                <p class="pop_mention_title">current offers<span></span></p>
+                <p class="pop_mention_detail">
+
+                <br/><br/><br/>                <br />
+            </div>
+        </div>
+
+                <div id="mention_legales_popup">
+            <a href="terms-and-conditions.php.html#" onclick="show_popup('mention_legales_pop_up')">
+                *Click here to learn all about the details of our offers            </a>
+        </div>
+        
+    
+
+
+
+
+</footer>
+
+		<div id="shade" class="modal_shade"></div>
+		<div id="shade_menu" class="modal_shade_menu"></div>
+		<div id="shade_compte" class=""></div>
+
+		<div id="cookies_block_footer">
+	<div class="cookies_bloc_txt">
+    	<div class="cookies_txt">
+        	<p style="text-transform: uppercase">cookies_texte_header</p>
+        	<p>MySuelly uses cookies in order to give you the best service possible. By continuing to browse the site, you agree to their use. Click here to know more</p>
+        	<p>
+        		<a style="color: #C0CC1C" href="terms-and-conditions.php.html#article18">Click here for more details</a>
+        	</p>
+    	</div>
+
+    	<p class="cookies_btn">OK</p>
+    </div>
+</div>
+
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+		<script type="application/javascript">
+				if ($('h1').hasClass('title_mon_compte'))
+        				$('body').addClass(('moncompte'));
+				if ($('h2').hasClass('title_procedure'))
+        				$('body').addClass(('footer'));
+				if ($('h2').hasClass('site_map'))
+        				$('body').addClass(('sitemap'));
+			
+			var path_relative_root = '/';
+			var price_format_plain = '[<unit>],[<decimal>] [<symbol_right>]';
+			var google_map_style = [{"elementType":"geometry","stylers":[{"color":"#f5f5f5"}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"elementType":"labels.text.stroke","stylers":[{"color":"#f5f5f5"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text.fill","stylers":[{"color":"#bdbdbd"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"poi.park","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#dadada"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"transit.station","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]}];
+			var intlTelInputFavCountries = ["fr"];
+						var is_magasin = false;
+							var tabAuthTop = [
+					[ 'mail', 'clientMailAuthTop', 'login_email' ],
+					[ 'alphanum', 'clientPwdAuthTop', 'login_mdp' ]
+				];
+				var tabLostPwdTop = [
+					[ 'mail', 'mailLostTop', 'login_email' ]
+				];
+				
+			window.addEventListener('orientationchange', function () {
+
+    			var originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display');
+
+    			document.body.style.display = 'none';
+
+    			setTimeout(function () {
+
+      				document.body.style.display = originalBodyStyle;
+    			}, 10);
+  			});
+		</script>
+
+		<script type="application/javascript" src="js/partials.1525435025.js"></script>
+		<script type="application/javascript" src="js/wshop.1525435025.js"></script>
+		<script type="application/javascript" src="js/script_legacy.1525354336.js"></script>
+		<script type="application/javascript" src="js/script.1525354336.js"></script>
+        <script type="application/javascript" src="js/intlTelInput.1525435025.js"></script>
+
+		<script type="text/javascript">var lang_iso = 'en';</script><script type="text/javascript">var siteCurrency = {};siteCurrency.code = 'EUR';siteCurrency.symbol_left = '';siteCurrency.symbol_right = '&euro;';siteCurrency.decimal_place = '2';var PRICE_FORMAT_PLAIN_JS = '[<unit>],[<decimal>] [<symbol_right>]';</script><script type="text/javascript">var nb_try_auth = 0;var max_try_auth = 3;var token_security = 'e89e176cec0de49056aa5d3027f6badc9c3f6df4';var captcha_google = '6Lf840wUAAAAAMDdW0PHiDjsl57EYw8CtRAfl56M';</script>
+		<script type="application/javascript">
+			$(document).ready(function () {
+
+				var cookies_bloc = $("#cookies_block_footer");
+
+				var bloc_go_away = function () {
+
+					cookies_bloc.fadeOut(2000, function () {
+
+						$(document).off("click scroll", cookie_accepted);
+
+						cookies_bloc.remove();
+					});
+				};
+
+				if($('body').hasClass('lamaison') || $('body').hasClass('tribu') || $('body').hasClass('presse')){
+					$('#menu_5').addClass('current');
+				}
+
+				var cookie_accepted = function (event) {
+
+					$.cookie('cookies_info_bloc', 'accepted', { expires : 90 });
+
+					if ($(event.target).hasClass('cookies_btn')) {
+
+						event.preventDefault();
+
+						bloc_go_away();
+
+						return false;
+					} else {
+
+						setTimeout(bloc_go_away, 10000);
+					}
+				};
+
+				cookies_bloc.remove();
+
+				if ($.cookie('cookies_info_bloc')) {
+
+					return;
+				} else {
+
+					$("body").append(cookies_bloc);
+
+					cookies_bloc.show();
+					cookies_bloc.find('.cookies_btn').on('click', cookie_accepted);
+
+					$(document).on("click scroll", cookie_accepted);
+				}
+			});
+		</script>
+
+		
+        			<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"bd2aebe9e8","applicationID":"94065360,94065361","transactionName":"YAYGMkIAXEtUB0RQDFlMJxNDFV1VGipRTwpQAhAPXw8de1oKVFAXXgwKFRAmV1ZQFlFVBkRDAAMQN1dWQQE=","queueTime":0,"applicationTime":1281,"ttGuid":"","agentToken":"","atts":"TEEFRAoaT0U=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

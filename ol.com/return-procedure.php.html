@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+				<meta name="author" content="Mysuelly" />
+		<meta name="copyright" content="&copy; 2017 MySuelly" />
+		<meta name="ROBOTS" content="INDEX, FOLLOW" />
+		<meta name="google-site-verification" content="aSPgXM7F2xzzUENfdVweh8mwSQdnDUV-guXXwFy759M" />
+		<meta name="format-detection" content="telephone=no" />
+
+		<!-- Site Title -->
+        <title>Shipping & Returns | MySuelly</title>
+        <meta name="description" content="Read our procedure to make a return." />
+        <meta name="keywords" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+
+		
+            <link rel="shortcut icon" type="image/x-icon" href="favicon.gif" />
+
+        		
+		<link rel="stylesheet" type="text/css" href="css/style.1525354336.css" media="all" />
+		
+		<script>
+
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-100392780-1', {'siteSpeedSampleRate': 5});
+			ga('send', 'pageview');
+            ga('require', 'displayfeatures');
+            ga('require', 'ec');
+            ga('set', '&cu', 'EUR');
+
+            		</script>
+
+		<link rel="alternate" hreflang="en" href="return-procedure.php.html" />
+
+	</head>
+
+	<body class="en site_1 three_cols " onunload="">
+
+		
+        
+        
+		<main class="page_wrapper">
+			<header id="site_head_wrap">            <div id="top_wrapper" class="head_top">
+	<div class="wrapper_encarts clearfix">
+    	<div class="wrapper_left f_left">
+            <span>Worldwide shipping</span>
+            <div class="top_lang">
+                <div class=""> 
+                    <a href="javascript:changeLocale('fr','/return-procedure.php');" class="">Fr |</a>
+                    <a href="javascript:changeLocale('en','/return-procedure.php');" class="active">En</a>
+                </div> 
+            </div>
+            <a id="topMenuFavoriteStore" class="top_link vector_sprite pseudo before geoloc" href="shop.php.html">
+				<span>Our stores</span>
+            </a>
+    	</div>
+    
+        <div class="wrapper_right f_right">    
+            <div class="search_box">
+                                <form autocomplete="off" id="form_recherche" method="get" action="https://www.mysuelly.com/sitesearch_recherche.php" onsubmit="return isEmptyKeywordSearch();">
+                    <div class="relative">
+                        <span class="icon_search"></span>
+                        <input type="text" value="" onblur="if(this.value=='') { repli_search(); }" id="search_home" name="keyword" placeholder="Sandals, bags..."/>
+                        <input type="hidden" id="path" value="/">
+                        <span id="btn_search_home" onclick="$('#form_recherche').submit();"><span>Search</span></span>
+                        <div id="show_search"></div>
+                    </div>
+                </form>
+            </div>
+        
+            <div class="account_wrapper">
+                <div id="topMenuConnexionButton" class="my_account_btn ">
+                    <div id="topMenuConnexionButtonInside" class="header_connexion loading">
+                        <span class="picto vector_sprite power"></span>
+                        <span id="entete_connexion"></span>
+                    </div>
+                </div>
+        
+                                <div class="cart elem_user_t" id="cart_top">
+                    <div id="cart_top" class="cart overTop" data-start="height:81px" data-33="height:52px">
+	<div class="wrapper_cart_top" data-start="height:81px" data-33="height:48px">
+		<a id="panier" class="f_right" style="cursor:default;" href="javascript:;" >
+			<p id="txt_articles">
+				<div class="ico_cart"><div data-start="margin-top:21px" data-33="margin-top:8px"><span class="h-cart"></span></div></div>
+				<span class="panier_txt">
+               		<span class="ico_panier"></span>
+               		<span>Shopping Bag</span>
+               	</span>
+                <span id="nb_article" data-start="top:25px" data-33="top:12px">
+					0				</span>
+			</p>
+		</a>
+			 </div>
+</div>
+                </div>
+                            </div>
+        </div>
+    </div>    
+</div>
+
+<nav class="main_menu_wrapper clearfix">
+	<a class="logo" href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html">
+					<div>alt_logo</div>
+				</a>
+	<div class="main_menu">
+		    
+	<div id="menu_last-chance" class="main_menu_itm">
+					<a class="block_lnk" href="last-chance.html">
+				<strong>Last Chance</strong>
+				<span></span>
+			</a>
+				</div>
+
+	<div id="ssmenu_2" class="submenu_wrapper clearfix">
+		<div class="submenu">
+							<div class="ss_menu_categ_wrapper">
+											<ul class="ss_cat shoes">
+							<li>
+								<a class="ss_cat_name" href="last-chance/shoes.html">
+									<span>Shoes</span>
+								</a>
+							</li>
+
+													</ul>
+												<ul class="ss_cat leather-goods">
+							<li>
+								<a class="ss_cat_name" href="last-chance/leather-goods.html">
+									<span>Leather Goods</span>
+								</a>
+							</li>
+
+													</ul>
+												<ul class="ss_cat see-all">
+							<li>
+								<a class="ss_cat_name" href="last-chance/see-all.html">
+									<span>See All</span>
+								</a>
+							</li>
+
+													</ul>
+						                </div>
+
+			                <span class="menu_collection_pic">
+                    <a href="last-chance/see-all.html">
+                        <img src="img/uploads/img_rayon/MS/2/visuel_rayon_26_2.jpg" alt="See All" />
+                    </a>
+                </span>
+           		</div>
+	</div>
+	    
+	<div id="menu_shoes" class="main_menu_itm">
+					<a class="block_lnk" href="shoes.html">
+				<span id="categ_1">Shoes</span>
+			</a>
+				</div>
+
+	<div id="ssmenu_3" class="submenu_wrapper clearfix">
+		<div class="submenu">
+							<div class="ss_menu_categ_wrapper">
+											<ul class="ss_cat sandals-mules">
+							<li>
+								<a class="ss_cat_name" href="shoes/sandals-mules.html">
+									<span>Sandals, mules</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat pumps">
+							<li>
+								<a class="ss_cat_name" href="shoes/pumps.html">
+									<span>Pumps</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat oxfords">
+							<li>
+								<a class="ss_cat_name" href="shoes/oxfords.html">
+									<span>Oxfords</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat boots">
+							<li>
+								<a class="ss_cat_name" href="shoes/boots.html">
+									<span>Boots</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat new-arrivals">
+							<li>
+								<a class="ss_cat_name" href="shoes/new-arrivals.html">
+									<span>New arrivals</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+						                </div>
+
+			                <span class="menu_collection_pic">
+                    <a href="shoes/new-arrivals.html">
+                        <img src="img/uploads/img_rayon/MS/2/visuel_rayon_2_2.jpg" alt="New arrivals" />
+                    </a>
+                </span>
+           		</div>
+	</div>
+	        <a class="logo-scroll" href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html">
+                    <div></div>
+                </a>
+    
+	<div id="menu_leather-goods" class="main_menu_itm">
+					<a class="block_lnk" href="leather-goods.html">
+				<span id="categ_2">Leather goods</span>
+			</a>
+				</div>
+
+	<div id="ssmenu_4" class="submenu_wrapper clearfix">
+		<div class="submenu">
+							<div class="ss_menu_categ_wrapper">
+											<ul class="ss_cat handbag">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/handbag.html">
+									<span>Handbag</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat crossbody-bag">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/crossbody-bag.html">
+									<span>Crossbody bag</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat small-bag-clutch">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/small-bag-clutch.html">
+									<span>Small bag, Clutch</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat party-bag">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/party-bag.html">
+									<span>Party bag</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+												<ul class="ss_cat new-arrivals">
+							<li>
+								<a class="ss_cat_name" href="leather-goods/new-arrivals.html">
+									<span>New arrivals</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+						                </div>
+
+			                <span class="menu_collection_pic">
+                    <a href="leather-goods/new-arrivals.html">
+                        <img src="img/uploads/img_rayon/MS/2/visuel_rayon_14_2.jpg" alt="New arrivals" />
+                    </a>
+                </span>
+           		</div>
+	</div>
+	    
+	<div id="menu_lookbook" class="main_menu_itm">
+					<a class="block_lnk" href="lookbook.html">
+				<span id="categ_4">Lookbook</span>
+			</a>
+				</div>
+
+	<div id="ssmenu_5" class="submenu_wrapper clearfix">
+		<div class="submenu">
+							<div class="ss_menu_categ_wrapper">
+											<ul class="ss_cat lookbook">
+							<li>
+								<a class="ss_cat_name" href="lookbook.html">
+									<span>Lookbook</span>
+								</a>
+							</li>
+
+							
+								<li>
+									
+								</li>
+
+													</ul>
+						                </div>
+
+			                <span class="menu_collection_pic">
+                    <a href="lookbook.html">
+                        <img src="img/uploads/img_rayon/MS/2/visuel_rayon_14_2.jpg" alt="Lookbook" />
+                    </a>
+                </span>
+           		</div>
+	</div>
+	<div id="menu_5" class="main_menu_itm">
+	<a class="block_lnk" href="return-procedure.php.html">
+		<span id="categ_5">MySuelly Paris</span>
+	</a>
+</div>
+
+<div id="ssmenu_5" class="submenu_wrapper clearfix" style="display: none;">
+	<div class="submenu">
+		<div class="ss_menu_categ_wrapper">
+
+			<ul class="ss_cat">
+				<li>
+					<a class="ss_cat_name" href="home.html">
+						<span>La Maison</span>
+					</a>
+				</li>	
+			</ul>
+			
+			<ul class="ss_cat">
+				<li>
+					<a class="ss_cat_name" href="press.html">
+						<span>Press</span>
+					</a>
+				</li>
+			</ul>
+			
+			<ul class="ss_cat">
+				<li>
+					<a class="ss_cat_name" href="ms-live.php.html">
+						<span>#MySuelly</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="menu_shade">&nbsp;</div>
+
+
+			</div>
+</nav>
+
+
+<div id="my_account_tmpl" style="display:none">
+	{{#is_loggedin}}
+	
+<div id="topMenuConnexionButtonInside" class="header_connexion">
+	<a href="my-account.php.html">
+        <span id="entete_connexion">My Account</span>		
+	</a>
+</div>
+
+<div id="topMenuConnexion" class="login_box">
+	<div id="topMenuConnexionTop" class="logged">
+		<div id="wrapper_infos_client" class="wrapper_menu_top_connected">
+			<table class="content" cellspacing="0" cellpadding="0" border="0">
+				<tbody class="TopMenuConnexionOn">
+					<tr>
+						<td class="rose" style="padding:16px 31px 0 32px;font-size:14px;color:#000;text-transform:uppercase">
+							                            <span class="customer_name">Dear {{ customer_fname }}</span>
+						</td>
+					</tr>
+
+                    {{#wishlist_active}}
+					<tr style="height:7px">
+						<td>
+							<a id="top_wishlist" class="top_wishlist" href="my-account.php.html#wl">
+								<span>voir_wishlist_button_label</span>
+								<span id="number_wishlist_top" class="gris">(x{{ wishlist_length }})</span>
+							</a>
+						</td>
+					</tr>
+					{{/wishlist_active}}
+
+					<tr>
+						<td class="rose">
+							<span>My information</span>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" title="Informations Personnelles" href="my-account.php%3Faction=edit.html">
+								<span>My personal information</span>
+							</a>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" href="addresses.php.html">
+								<span>My Addresses</span>
+							</a>
+						</td>
+					</tr>
+
+										{{#has_orders}}
+					<tr>
+						<td class="rose">
+							<span>My Orders</span>
+						</td>
+					</tr>
+
+					{{#has_pending_orders}}
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" title="Mes commandes" href="my-orders.html">
+								<span>My orders</span>
+							</a>
+						</td>
+					</tr>
+					{{/has_pending_orders}}
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" href="my-messages.php.html">
+								<span>My Messages</span>
+							</a>
+						</td>
+					</tr>
+                    
+                    						<tr>
+							<td>
+								<span class="tiret_top"></span>
+								<a class="lien_top" href="wishlist.html">
+									<span>My Wishlist</span>
+									<span id="number_wishlist_top" class="gris">(x{{ wishlist_length }})</span>
+								</a>
+							</td>
+						</tr>
+										{{/has_orders}}
+										<tr>
+						<td class="rose">
+							<span>Newsletters</span>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" href="newsletter.php.html">
+								<span>Newsletters</span>
+							</a>
+						</td>
+					</tr>
+                    
+                                        
+                    <tr>
+						<td>
+							<span class="tiret_top"></span>
+							<a class="lien_top" href="contact.php.html">
+								<span>FAQ</span>
+							</a>
+						</td>
+					</tr>
+
+                    <tr>
+                    	<td height="19">&nbsp;</td>
+                    </tr>
+
+					<tr class="topMenuConnexionBottom deconnect_block" height="28">
+                        <td colspan="3">
+                        	<table cellpadding="0" cellspacing="0">
+                            	<tr>
+                                	<td width="31" colspan="3">&nbsp;</td>
+
+									<td class="topMenuConnexionBottomInside btn_deconnect" colspan="3" width="199">
+										<a id="btn-disconnect" href="javascript:void(0)" onclick="waitingProcess.call(this, this.nextElementSibling, 2)">
+											<span>deconnexion</span>
+										</a>
+
+										<div id="loader_4" class="loader_connexion" style="display:none">
+											<img src="img/ajaxLoader.1525354336.gif" width="25" height="25" />
+											<span>Please wait</span>
+										</div>
+									</td>
+
+                                	<td width="32" colspan="3">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+	{{/is_loggedin}}
+	{{^is_loggedin}}
+	<a href="my-messages.php.html">	
+		<div id="topMenuConnexionButtonInside" class="header_connexion">
+			<span class="picto vector_sprite power"></span>
+			<span id="entete_connexion">My Account</span>
+		</div>
+	</a>
+	{{/is_loggedin}}
+</div>
+<table cellspacing="0" cellpadding="0" border="0" id="bloc_erreur" class="tooltip cache" width="280">
+	<tr>
+		<td class="content_tooltip" colspan="2" width="290"><div id="erreur_msg"></div></td>
+	</tr>
+	</table>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+	jQuery('#show_search').on({
+		click : function () {
+			
+			jQuery(this).hide();
+			jQuery('#search_home').css("border","0px");
+            
+            if($('.en').length) {
+                var input_size = "+=150";
+            }else {
+                var input_size = "+=265";
+            }           
+			
+			jQuery('#search_home').stop(true, true).animate({
+				width: input_size
+			}, 300, function(){
+				jQuery(this).focus();                    
+			}); 
+			jQuery('.icon_search').css("right","190px"),300;        
+		}
+		
+	});
+
+	
+	function repli_search() {
+		jQuery('#show_search').show();
+		jQuery('#search_home').stop(true, true).animate({
+			width: "0"
+		}, 300, function() {
+			jQuery(this).css("border","0px")
+		});
+		jQuery('.icon_search').css("right","0"),300;  
+	}
+</script></header>
+			<div class="header_tunnel">
+				<a class="mysuelly" href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html"></a>
+			</div>
+			<section id="site_global_wrap" class="main_wrapper"><div id="wrapper_contact">
+	<h2 class="title_procedure">Return & Withdrawal</h2>
+	
+<div class="all_wrapper wrapper_ariane">
+
+	<a href="leather-goods/crossbody-bag/crossbody-bag/blue-suede-bag/social_pin.html" class="fil_home">Home</a>
+                                            	                <span class="sep"></span>
+                                    <span class="current_ariane">returns procedure</span>
+                                                         
+</div>	<div class="fond_middle_cadre texte_nom" id="middle_box_return_proc">
+		        
+        <div class="title_line"><h3>Period for returning a parcel</h3></div>
+                <p>As specified in Article 8 of the General Terms and Conditions of Sale:<br>In line with the provisions set forth in Article L.121-21 of the French Consumer Code, customers have a period of 14 days within which to exercise their right of withdrawal without the need to cite a reason justifying the return. This period commences upon receipt of the product by customer or by a third party appointed by the customer.<br>Should the 14-day period expire on a Saturday, a Sunday or a public holiday, it shall be extended to the next working day.</p>
+        <p>The right of withdrawal applies solely to products returned in their original condition.<br><br><strong>In France:</strong><br>The return is free of charge if you opt to deposit it at a collection point; otherwise, you must pay the costs.<br><strong>In Europe:</strong><br>The return must be paid for and the Customer is responsible for selecting the shipper.<br><strong>International:</strong><br>The return must be paid for and the Customer is responsible for selecting the shipper.</p>
+        <p class="line">The Customer shall return the item(s) affected by the right of withdrawal to Mysuelly, without excessive delay and within 14 days of the date on which he/she communicates his/her decision to withdraw.<br><br>To ensure that parcels are received safely and that the return can be processed more rapidly, the Customer should follow one of the procedures outlined below:</p>
+        
+        <div class="title_line"><h3>Return procedure</h3></div>
+        <p><strong>Free return</strong> (in collect points for France delivery &ndash; except TNT)<br><br>1. Go to the "My Account" customer area<br>2. Click on the order concerned<br>3. Click on the "Get a return number" button<br>4. Pack the product(s) to be returned and attach the completed delivery slip.<br>-Write the return number on the box (legibly and permanently). Packages without a return number cannot be processed.<br>-Make sure to wrap the package properly (consult the official recommendations)<br>5. Ship your package to the following address:<br>D&eacute;p&ocirc;t Bingo<br>Service Retour Mysuelly<br>PARC D&apos;ACTIVITE DE LA BELLE ASSISE<br>OURSEL MAISON<br>60122 BRETEUIL CEDEX<br></p>
+        <p class="line"><strong>Other conditions of return</strong> (delivery out of France or TNT delivery)<br><br>1. Fill in the Delivery Slip attached to your package in the boxes provided:<br>- the reason for your return<br>- the quantities returned<br>2. Pack the product (s) to be returned and attach the duly completed delivery note.<br>3. Send your package to the following address:<br>D&eacute;p&ocirc;t Bingo<br>Service Retour Mysuelly<br>PARC D&apos;ACTIVITE DE LA BELLE ASSISE<br>OURSEL MAISON<br>60122 BRETEUIL CEDEX</p>   
+        <p></p>
+        <p class="line"></p>
+        
+        <div class="title_line"><h3>Refunds</h3></div>
+        <p>If the Customer chooses to exercise his/her right of withdrawal, Mysuelly shall reimburse the Customer for the price of the item(s) concerned and, if the order is being returned in its entirety, the shipping costs based on the least expensive standard shipping method offered by Mysuelly.<br><br>In the event of a return of several items that are the subject of a promotional offer or a sale, the amount refunded shall be that indicated on the invoice enclosed with the parcel. The refund shall take effect after Mysuelly has received the item(s) subject to the withdrawal by the Customer.<br><br>The refund shall be arranged via the payment method used for the order being returned, within 15 to 30 days from the date on which the Customer has exercised his/her right of withdrawal.<br><br>The refund cannot be made if the item in question has been subject to a depreciation as a result of any handling other than that necessary to establish its nature, properties and conformity.</p> 
+        <p>Customers wishing to avail of the legal warranty with regard to conformity or hidden defects must return the item within the period allotted to Mysuelly at the following address:<br>D&eacute;p&ocirc;t Bingo<br>Service Retour Mysuelly<br>PARC D&apos;ACTIVITE DE LA BELLE ASSISE<br>OURSEL MAISON<br>60122 BRETEUIL CEDEX, FRANCE<br>Prior to returning the item(s), the Customer must contact the Web Customer Service via the contact form on the website or at: [+33 (0)1 71 70 34 44]. In the event of the return of a defective or non-conformant product, following confirmation by Mysuelly, of the defectiveness or non-conformity of the product, Mysuelly shall reimburse the Customer for the price of the item(s) concerned.</p>
+        
+	</div>
+</div>
+
+<script type="text/javascript">
+    
+    $(function() {
+
+        $('body').addClass('procedure-retour');
+    });
+</script></section>
+		</main>
+
+		<footer id="copyright" class="site_bottom clearfix">	<div class="footer_rassu_wrapper">
+		<ul class="rassurance">
+        	<li class="bloc rassu_sprite satisfait">
+				<div class="title">Money Back Guarantee</div>
+            </li>
+
+			<li class="bloc rassu_sprite paiement">
+				<div class="title">Secured payment</div>
+			</li>
+
+			<li class="bloc rassu_sprite service">
+									<a href="contact.php.html">
+									<div class="title">Customer service</div>
+									<p class="nous_contacter"></p>
+					
+										</a>
+								</li>
+
+            <li class="bloc rassu_sprite livraison">
+				<div class="title">Free delivery</div>
+            </li>
+		</ul>
+	</div>
+
+<div class="footer_about_wrapper">
+    <div class="logo">
+        <img src="svg/mysuelly_logo.svg" alt="Mysuelly" width="205" height="56" />
+    </div>
+
+    <div class="about_wrapper">
+
+    	<!-- Social -->
+        <div class="social">
+            <div class="title">Follow us</div>
+
+            <ul class="social_media">
+                <li class="social_btn facebook">
+                    <a class="block_lnk" target="_blank" href="social_facebook.html">Facebook</a>
+                </li>
+
+                <li class="social_btn instagram">
+                    <a class="block_lnk" target="_blank" href="social_instagram.html">Instagram</a>
+                </li>
+
+                <li class="social_btn pinterest">
+                   <a class="block_lnk" target="_blank" href="social_pin.html">Pinterest</a>
+                </li>
+            </ul>
+        </div>
+
+			<div class="btm_menu"><div id="footerMS">
+	<table id="listes">
+		<tr>
+			<td>
+                <h2><a href="shoes.html" title="Women’s Shoes MySuelly">Shoes</a></h2>
+				<table cellspacing="0" border="0" id="liste1">
+					<tr><td><h3><a href="shoes/boots-oxfords.html" title="Women’s Boots MySuelly">Boots, Oxfords</a></h3></td></tr>
+                                        			<tr><td><h3><a href="shoes/pumps.html" title="Women’s Pumps MySuelly">Pumps</a></h3></td></tr>
+					<tr><td><h3><a href="shoes/sandals-mules.html" title="Women’s Sandals MySuelly">Sandals, Mules</a></h3></td></tr>
+				</table>
+			</td>    
+			
+			<td>           
+                <h2><a href="leather-goods.html" title="Women’s Leather goods MySuelly">Leather goods</a></h2>
+				<table cellspacing="0" border="0" id="liste2">
+					<tr><td><h3><a href="leather-goods/handbag.html" title="Women’s Handbag MySuelly">Handbag</a></h3></td></tr>
+					<tr><td><h3><a href="leather-goods/crossbody-bag.html" title="Women’s Crossbody Bag MySuelly">Crossbody Bag</a></h3></td></tr>
+					<tr><td><h3><a href="leather-goods/small-bag-clutch.html" title="Women's Small Bag MySuelly">Small Bag</a></h3></td></tr>							   
+				</table>                                             
+			</td>  
+			 		
+			<td>           
+                <h2><a href="lookbook.html" title="Women’s Lookbook MySuelly">Lookbook</a></h2>
+				<table cellspacing="0" border="0" id="liste3">
+                                        <tr><td><h3><a href="home.html" title="MySuelly's House">House</a></h3></td></tr>
+					<tr><td><h3><a href="shoes/new-arrivals.html" title="Women’s Shoes New arrivals">New arrivals</a></h3></td></tr>
+					<tr><td><h3><a href="press.html" title="Press MySuelly">Presse</a></h3></td></tr>
+										   
+				</table>                                             
+			</td> 
+		</tr>
+	</table>
+</div>
+</div>
+
+        <!-- Newsletter -->
+        <div class="wrapper_news">
+			<div class="text">
+				<p class="title">Newsletter</p>
+			</div>
+
+			<form class="footer_news_form" onsubmit="return false;">
+				<input id="newsletter_email" type="text" name="email" autocomplete="email"  placeholder="E-mail"/>
+				<input id="newsletter_home" type="submit" value="Ok" />
+			</form>
+			<div class="media">
+				<div class="media_news">
+					<div class="text">
+						<p id= 'infos'></p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+	<div class="copyright">
+		<ul class="satellites">
+			<li class="sat_lnk">
+				<a href="site-map.php.html">Site map</a>
+			</li>
+
+            <li class="sat_lnk">
+				<a href="la-maison.html">La Maison</a>
+			</li>
+
+             <li class="sat_lnk">
+				<a href="shop.php.html">Our stores</a>
+			</li>
+
+            <li class="sat_lnk">
+				<a href="return-procedure.php.html">Delivery & returns</a>
+			</li>
+
+			<li class="sat_lnk">
+				<a href="legal-notice.php.html">Legal mentions</a>
+			</li>
+
+            <li class="sat_lnk">
+				<a href="terms-and-conditions.php.html">Terms and Conditions</a>
+			</li>
+
+			<li class="sat_lnk">
+				<a href="contact.php.html">Customer Service</a>
+			</li>
+		</ul>
+
+		<p class="copyright_mention">
+			<a href="http://www.webpopulation.fr/wshop.html" target="_blank" title="WSHOP&reg;">
+				<span>WSHOP&reg;</span>
+			</a>
+		</p>
+	</div>
+</div>
+
+<div class='footer_recall_produits' id="footer_recall_produits" style="display:none">
+	</div>
+
+<script>
+
+    var socialButtons = {};
+
+            (function (d) {
+
+            var js, id = 'facebook-jssdk';
+
+            if (d.getElementById(id)) return;
+
+            js = d.createElement('script');
+            js.id = id;
+            js.async = true;
+            js.src = "//connect.facebook.net/fr_FR/all.js";
+
+            d.getElementsByTagName('head')[0].appendChild(js);
+        }(document));
+
+        socialButtons.FBConnectButton = ".fb_connect";
+
+        window.fbAsyncInit = function(){
+            FB.init({
+                appId : 1443973878992238,
+                status : true, // check login status
+                cookie : true, // enable cookies to allow the server to access the session
+                oauth : true, // enable cookies to allow the server to access the session
+                xfbml : true // enable cookies to allow the server to access the session
+            });
+        };
+
+        $(function () {
+
+            var socialConnector = new SocialConnector(socialButtons);
+
+            if (socialConnector !== null) {
+
+                socialConnector.addEventListener('authRequest', function () {
+
+                }).addEventListener('connected', function () {
+
+                    window.location.reload();
+                }).addEventListener('connectFailure', function (response) {
+
+                    alert(response.message);
+                }).addEventListener('appError', function (response) {
+
+                    alert(response.message);
+                });
+            }
+        });
+    
+</script>
+
+
+            <div id="mention_legales_pop_up">
+            <div id="content_mention_legales_pop_up">
+                <p id="fermer_mention_legales_pop_up"><a href="javascript:;" class="btn_retour" onclick="close_popup('mention_legales_pop_up')">Close</a></p>
+                <p class="pop_mention_title">current offers<span></span></p>
+                <p class="pop_mention_detail">
+
+                <br/><br/><br/>                <br />
+            </div>
+        </div>
+
+                <div id="mention_legales_popup">
+            <a href="return-procedure.php.html#" onclick="show_popup('mention_legales_pop_up')">
+                *Click here to learn all about the details of our offers            </a>
+        </div>
+        
+    
+
+
+
+
+</footer>
+
+		<div id="shade" class="modal_shade"></div>
+		<div id="shade_menu" class="modal_shade_menu"></div>
+		<div id="shade_compte" class=""></div>
+
+		<div id="cookies_block_footer">
+	<div class="cookies_bloc_txt">
+    	<div class="cookies_txt">
+        	<p style="text-transform: uppercase">cookies_texte_header</p>
+        	<p>MySuelly uses cookies in order to give you the best service possible. By continuing to browse the site, you agree to their use. Click here to know more</p>
+        	<p>
+        		<a style="color: #C0CC1C" href="terms-and-conditions.php.html#article18">Click here for more details</a>
+        	</p>
+    	</div>
+
+    	<p class="cookies_btn">OK</p>
+    </div>
+</div>
+
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+		<script type="application/javascript">
+				if ($('h1').hasClass('title_mon_compte'))
+        				$('body').addClass(('moncompte'));
+				if ($('h2').hasClass('title_procedure'))
+        				$('body').addClass(('footer'));
+				if ($('h2').hasClass('site_map'))
+        				$('body').addClass(('sitemap'));
+			
+			var path_relative_root = '/';
+			var price_format_plain = '[<unit>],[<decimal>] [<symbol_right>]';
+			var google_map_style = [{"elementType":"geometry","stylers":[{"color":"#f5f5f5"}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"elementType":"labels.text.stroke","stylers":[{"color":"#f5f5f5"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text.fill","stylers":[{"color":"#bdbdbd"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"poi.park","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#dadada"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"transit.station","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]}];
+			var intlTelInputFavCountries = ["fr"];
+						var is_magasin = false;
+							var tabAuthTop = [
+					[ 'mail', 'clientMailAuthTop', 'login_email' ],
+					[ 'alphanum', 'clientPwdAuthTop', 'login_mdp' ]
+				];
+				var tabLostPwdTop = [
+					[ 'mail', 'mailLostTop', 'login_email' ]
+				];
+				
+			window.addEventListener('orientationchange', function () {
+
+    			var originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display');
+
+    			document.body.style.display = 'none';
+
+    			setTimeout(function () {
+
+      				document.body.style.display = originalBodyStyle;
+    			}, 10);
+  			});
+		</script>
+
+		<script type="application/javascript" src="js/partials.1525435025.js"></script>
+		<script type="application/javascript" src="js/wshop.1525435025.js"></script>
+		<script type="application/javascript" src="js/script_legacy.1525354336.js"></script>
+		<script type="application/javascript" src="js/script.1525354336.js"></script>
+        <script type="application/javascript" src="js/intlTelInput.1525435025.js"></script>
+
+		<script type="text/javascript">var lang_iso = 'en';</script><script type="text/javascript">var siteCurrency = {};siteCurrency.code = 'EUR';siteCurrency.symbol_left = '';siteCurrency.symbol_right = '&euro;';siteCurrency.decimal_place = '2';var PRICE_FORMAT_PLAIN_JS = '[<unit>],[<decimal>] [<symbol_right>]';</script><script type="text/javascript">var nb_try_auth = 0;var max_try_auth = 3;var token_security = 'e89e176cec0de49056aa5d3027f6badc9c3f6df4';var captcha_google = '6Lf840wUAAAAAMDdW0PHiDjsl57EYw8CtRAfl56M';</script>
+		<script type="application/javascript">
+			$(document).ready(function () {
+
+				var cookies_bloc = $("#cookies_block_footer");
+
+				var bloc_go_away = function () {
+
+					cookies_bloc.fadeOut(2000, function () {
+
+						$(document).off("click scroll", cookie_accepted);
+
+						cookies_bloc.remove();
+					});
+				};
+
+				if($('body').hasClass('lamaison') || $('body').hasClass('tribu') || $('body').hasClass('presse')){
+					$('#menu_5').addClass('current');
+				}
+
+				var cookie_accepted = function (event) {
+
+					$.cookie('cookies_info_bloc', 'accepted', { expires : 90 });
+
+					if ($(event.target).hasClass('cookies_btn')) {
+
+						event.preventDefault();
+
+						bloc_go_away();
+
+						return false;
+					} else {
+
+						setTimeout(bloc_go_away, 10000);
+					}
+				};
+
+				cookies_bloc.remove();
+
+				if ($.cookie('cookies_info_bloc')) {
+
+					return;
+				} else {
+
+					$("body").append(cookies_bloc);
+
+					cookies_bloc.show();
+					cookies_bloc.find('.cookies_btn').on('click', cookie_accepted);
+
+					$(document).on("click scroll", cookie_accepted);
+				}
+			});
+		</script>
+
+		
+        			<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"bd2aebe9e8","applicationID":"94065360,94065361","transactionName":"YAYGMkIAXEtUB0RQDFlMJxNDFV1VGipRTwpQAhAPXw8daEcLU1wHQhEBRlQEEmpQEF9MEQ==","queueTime":0,"applicationTime":155,"ttGuid":"","agentToken":"","atts":"TEEFRAoaT0U=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
